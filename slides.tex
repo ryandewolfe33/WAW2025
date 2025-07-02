@@ -32,6 +32,7 @@
 }
 \date{\color{darkblue}July 2025}
 
+\beamertemplatenavigationsymbolsempty
 \begin{document}
 \color{darkblue} % Global default color
 \setbeamercolor*{enumerate item}{fg=darkblue}
@@ -53,10 +54,11 @@
     \textcolor{tmublue}{\LARGE#1}
 }
 \addtobeamertemplate{navigation symbols}{}{%
-    \usebeamerfont{Large}%
+    %\usebeamerfont{Large}%
     \usebeamercolor[fg]{footline}%
     \hspace{1em}%
-    \insertframenumber/\inserttotalframenumber
+    \vspace{3em}
+    \large\insertframenumber/\inserttotalframenumber
 }
 
 \frame{\titlepage}
@@ -586,9 +588,21 @@ Consider the following graph transformations:
     \begin{itemize}
         \color{darkblue}
         \item Suppose some nodes are not strongly associated to any community (outliers).
-        \item We test if the maximum CAS to any community can predict if a node is not an outlier.
+        \item We test if the maximum CAS to any community can predict if a node is an outlier.
     \end{itemize}
-    $$\lnot outlier(v) = \max_{C\in \mathcal{C}} CAS(v,C)$$
+    $$outlier(v) = \max_{C\in \mathcal{C}} CAS(v,C)$$
+\end{frame}
+\begin{frame}{\slidetitle{Detecting Outliers}}
+    \begin{figure}
+        \includegraphics[height=0.75\textheight]{figures/outlier_hist_0.4.png}
+        \caption{Histogram of $outlier$ scores on an ABCD+o graph with $xi=0.4$.}
+    \end{figure}
+\end{frame}
+\begin{frame}{\slidetitle{Detecting Outliers}}
+    \begin{figure}
+        \includegraphics[height=0.75\textheight]{figures/outlier_hist_0.6.png}
+        \caption{Histogram of $outlier$ scores on an ABCD+o graph with $xi=0.6$.}
+    \end{figure}
 \end{frame}
 \begin{frame}{\slidetitle{Detecting Outliers}}
     \begin{figure}
@@ -627,14 +641,16 @@ Consider the following graph transformations:
 \end{frame}
 \begin{frame}{\slidetitle{Overlapping Communities}}
     \begin{figure}
-        \includegraphics[height=0.7\textheight]{figures/ego_1.png}
-        \caption{Using NIEF to post-process Ego-split.}
+        \vspace{-1em}
+        \includegraphics[height=0.8\textheight]{figures/ego_1.png}
+        \caption{Using NIEF to post-process Ego-split. ($\xi = 0.35$)}
     \end{figure}
 \end{frame}
 \begin{frame}{\slidetitle{Overlapping Communities}}
     \begin{figure}
-        \includegraphics[height=0.7\textheight]{figures/ego_2.png}
-        \caption{Using NIEF to post-process Ego-split.}
+        \vspace{-1em}
+        \includegraphics[height=0.8\textheight]{figures/ego_2.png}
+        \caption{Using NIEF to post-process Ego-split. ($\xi=0.35$)}
     \end{figure}
 \end{frame}
 \begin{frame}{\slidetitle{Overlapping Communities}}
